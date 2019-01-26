@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
+// import ColorLabel from "./ColorLabel";
 
 class Colorizer extends Component {
   constructor(props) {
@@ -27,6 +29,8 @@ class Colorizer extends Component {
     this._input.focus();
     this._input.value = "";
 
+    this._colorLabel.innerText = "Colorizer: " + this.state.color;
+
     e.preventDefault();
   }
 
@@ -37,6 +41,10 @@ class Colorizer extends Component {
 
     return (
       <div className="colorArea">
+        <h1 id="colorHeading" ref={el => (this._colorLabel = el)}>
+          Colorizer
+        </h1>
+
         <div style={squareStyle} className="colorSquare" />
 
         <form onSubmit={this.setNewColor}>
@@ -47,6 +55,7 @@ class Colorizer extends Component {
           />
           <button type="submit">go</button>
         </form>
+        {/* <ColorLabel color={this.state.bgcolor} /> */}
       </div>
     );
   }
