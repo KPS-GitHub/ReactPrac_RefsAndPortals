@@ -23,6 +23,10 @@ class Colorizer extends Component {
     this.setState({
       bgcolor: this.state.color
     });
+
+    this._input.focus();
+    this._input.value = "";
+
     e.preventDefault();
   }
 
@@ -36,7 +40,11 @@ class Colorizer extends Component {
         <div style={squareStyle} className="colorSquare" />
 
         <form onSubmit={this.setNewColor}>
-          <input onChange={this.colorValue} placeholder="Enter a Color" />
+          <input
+            onChange={this.colorValue}
+            ref={el => (this._input = el)}
+            placeholder="Enter a Color"
+          />
           <button type="submit">go</button>
         </form>
       </div>

@@ -7,6 +7,7 @@ import "./styles.css";
 function App() {
   return (
     <div className="App">
+      <h1>Colorizer</h1>
       <Colorizer />
     </div>
   );
